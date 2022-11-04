@@ -1,7 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Footer from '../components/footer.component'
+import Swal from 'sweetalert2/dist/sweetalert2.js'
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    first_name: '',
+    last_name: '',
+    email: '',
+    message: '',
+  })
+  const handleChange = (event) => {
+    setFormData(event.target.value)
+
+    console.log('value is:', event.target.value)
+  }
+  const Swal = require('sweetalert2')
+  const onSubmit = (e) => {
+    e.preventDefault()
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Message sent successfully!',
+      showConfirmButton: false,
+      timer: 2500,
+    })
+  }
   return (
     <div>
       <div className="w-2/5 mx-auto my-28 space-y-3 sm:w-full sm:px-6 sm:my-16">
@@ -9,11 +32,7 @@ const Contact = () => {
         <p className="text-gray-600 text-lg">
           Hi there, contact me to ask me about anything you have in mind.
         </p>
-        <form
-          className="space-y-6 py-3"
-          action="mailto:odusanya.folukemi@gmail.com"
-          method="POST"
-        >
+        <form className="space-y-6 py-3" onSubmit={onSubmit}>
           <div className="grid grid-cols-2 justify-between gap-3 sm:grid-cols-1">
             <div className="grid space-y-2">
               <label
@@ -27,6 +46,8 @@ const Contact = () => {
                 id="first_name"
                 name="first_name"
                 placeholder="Enter your first name"
+                required
+                onChange={handleChange}
                 className="border-2 rounded-md h-12 px-2 py-4 placeholder:text-sm w-full"
               />
             </div>
@@ -42,6 +63,8 @@ const Contact = () => {
                 id="last_name"
                 name="last_name"
                 placeholder="Enter your first name"
+                required
+                onChange={handleChange}
                 className="border-2 rounded-md h-12 px-2 py-4 placeholder:text-sm w-full"
               />
             </div>
@@ -55,6 +78,8 @@ const Contact = () => {
               id="email"
               name="email"
               placeholder="yourname@email.com"
+              required
+              onChange={handleChange}
               className="border-2 rounded-md h-12 px-2 py-4 placeholder:text-sm w-full"
             />
           </div>
@@ -68,6 +93,8 @@ const Contact = () => {
               form="message_form"
               rows="5"
               cols="33"
+              required
+              onChange={handleChange}
               className="border-2 rounded-md px-2 py-4 placeholder:text-sm w-full"
               placeholder="Send me a message and I'll reply you as soon as possible..."
             ></textarea>
@@ -80,7 +107,7 @@ const Contact = () => {
             </p>
           </div>
           <button
-            className="bg-blue w-full text-center text-white rounded-md h-12 font-bold "
+            className="bg-blue w-full text-center text-white rounded-md h-12 font-bold disabled:bg-opacity-50"
             id="btn_submit"
           >
             Send message
