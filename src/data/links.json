@@ -1,0 +1,33 @@
+[
+  {
+    "title": "Twitter Link",
+    "href": "https://twitter.com/__Foluke",
+    "id": "twitter"
+  },
+  {
+    "title": "Zuri Team",
+    "href": "https://training.zuri.team/",
+    "id": "btn__zuri"
+  },
+  { "title": "Zuri Books", "href": "http://books.zuri.team ", "id": "books" },
+  {
+    "title": "Python Books",
+    "href": "https://books.zuri.team/python-for-beginners?92882=folukeOdus",
+    "id": "book__python"
+  },
+  {
+    "title": "Background Check for Coders",
+    "href": " https://background.zuri.team",
+    "id": "pitch"
+  },
+  {
+    "title": "Design Books",
+    "href": "https://books.zuri.team/design-rules",
+    "id": "book__design"
+  },
+  {
+    "title": "Contact Me",
+    "href": "/contact",
+    "id": "contact"
+  }
+]
