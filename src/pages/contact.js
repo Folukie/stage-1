@@ -9,8 +9,8 @@ const Contact = () => {
     email: '',
     message: '',
   })
-  const handleChange = (event) => {
-    setFormData(event.target.value)
+  const handleChange = (e) => {
+    setFormData({ [e.target.name]: e.target.value })
   }
   const Swal = require('sweetalert2')
   const onSubmit = (e) => {
@@ -22,6 +22,7 @@ const Contact = () => {
       showConfirmButton: false,
       timer: 1500,
     })
+    e.target.reset()
   }
   return (
     <div>
@@ -107,6 +108,7 @@ const Contact = () => {
           <button
             className="bg-blue w-full text-center text-white rounded-md h-12 font-bold disabled:bg-opacity-50"
             id="btn_submit"
+            disabled={!formData.message}
           >
             Send message
           </button>
