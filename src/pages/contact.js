@@ -1,6 +1,6 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
 import Footer from '../components/footer.component'
-import Swal from 'sweetalert2/dist/sweetalert2.js'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,8 +11,6 @@ const Contact = () => {
   })
   const handleChange = (event) => {
     setFormData(event.target.value)
-
-    console.log('value is:', event.target.value)
   }
   const Swal = require('sweetalert2')
   const onSubmit = (e) => {
@@ -22,7 +20,7 @@ const Contact = () => {
       icon: 'success',
       title: 'Message sent successfully!',
       showConfirmButton: false,
-      timer: 2500,
+      timer: 1500,
     })
   }
   return (
